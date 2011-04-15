@@ -1,0 +1,18 @@
+PHP Enums Library
+Copyright (c) 2011 Tim Kurvers <http://www.moonsphere.net>
+
+This library provides enum functionality similar to the implementation
+found in Java. It differs from existing libraries by offering one-shot
+enum constructors through static initialization, enum iteration as well
+as equality support and value, ordinal and binary lookups.
+
+Required PHP version: 5.3
+
+Directory structure:
+
+	/examples/
+	/lib/
+	/LICENSE
+	/README
+
+This file will hopefully be expanded in the future ^.^
