@@ -116,6 +116,13 @@ abstract class Enum {
 	}
 	
 	/**
+	 * Returns the value of this enum
+	 */
+	public function getValue() {
+		return $this->___value;
+	}
+	
+	/**
 	 * Returns the ordinal (offset) of this enum
 	 */
 	final public function getOrdinal() {
