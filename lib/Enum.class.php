@@ -248,7 +248,7 @@ abstract class Enum {
 	/**
 	 * Fetches enum by given value (if any)
 	 */
-	final public static function byValue($value) {
+	public static function byValue($value) {
 		if(static::$___values === null && $cls = get_called_class()) {
 			if($cls === __CLASS__) {
 				return null;
@@ -266,7 +266,7 @@ abstract class Enum {
 	/**
 	 * Fetches enum by given ordinal offset (if any)
 	 */
-	final public static function byOrdinal($ordinal) {
+	public static function byOrdinal($ordinal) {
 		if(static::$___values === null && $cls = get_called_class()) {
 			if($cls === __CLASS__) {
 				return null;
@@ -284,7 +284,7 @@ abstract class Enum {
 	/**
 	 * Fetches enum by given binary flag (if any); Multiple enums can be returned as an array when using bitflags
 	 */
-	final public static function byBinary($binary, $singular=true) {
+	public static function byBinary($binary, $singular=true) {
 		if(static::$___values === null && $cls = get_called_class()) {
 			if($cls === __CLASS__) {
 				return ($singular) ? null : array();
