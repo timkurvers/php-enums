@@ -36,17 +36,17 @@ require('../lib/bootstrap.php');
 // Each country has a unique entry calling code 
 class CountryEntryCode extends Enum {
 	
-	const NETHERLANDS		= 31;
-	const NORWAY			= 47;
-	const UNITED_KINGDOM	= 44;
+	const NETHERLANDS       = 31;
+	const NORWAY            = 47;
+	const UNITED_KINGDOM    = 44;
 	
 }
 
 // As well as an optional exit code (note that enum members can have non-unique values!)
 class CountryExitCode extends Enum {
 
-	const NETHERLANDS		= 00;
-	const NORWAY			= 00;
+	const NETHERLANDS       = 00;
+	const NORWAY            = 00;
 	
 }
 

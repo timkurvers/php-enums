@@ -36,9 +36,9 @@ require('../lib/bootstrap.php');
 // To use Topping as an enumeration with members, simply extend Enum (found in /lib/Enum.class.php)
 class Topping extends Enum {
 	
-	const CHOCOLATE		= 'chocolate';
-	const STRAWBERRY	= 'strawberry';
-	const BLACKBERRY	= 'blackberry';
+	const CHOCOLATE     = 'chocolate';
+	const STRAWBERRY    = 'strawberry';
+	const BLACKBERRY    = 'blackberry';
 	
 }
 
@@ -58,13 +58,13 @@ Topping::get('MISSING'); // null
 // Every enum has a value, ordinal offset and binary flag
 // Values may overlap, ordinal offset will always be unique
 $strawberry = Topping::STRAWBERRY();
-$strawberry->getValue(); // 'strawberry'
+$strawberry->getValue();   // 'strawberry'
 $strawberry->getOrdinal(); // 1 (2nd constant in the zero-based list)
-$strawberry->getBinary(); // 2 (generating a unique flag for this enum, the 2nd bit is set, which results in 2)
+$strawberry->getBinary();  // 2 (generating a unique flag for this enum, the 2nd bit is set, which results in 2)
 
 // Searching for a specific enum using these properties; All these calls fetch the Topping::BLACKBERRY enum 
 Topping::byValue('blackberry'); // Topping::BLACKBERRY instance
-Topping::byOrdinal(2); // exact same instance
+Topping::byOrdinal(2);   // exact same instance
 Topping::byBinary(0x04); // idem
 
 // Since Topping is an enum-type - and therefore a class, we can use it in type-hints
@@ -88,10 +88,10 @@ Topping::STRAWBERRY() == Topping::BLACKBERRY(); // false
 $chocolate = Topping::CHOCOLATE();
 
 // When comparing with strings, it assumes those strings to be member names (such as CHOCOLATE and STRAWBERRY)
-$chocolate->equals('CHOCOLATE'); // true
+$chocolate->equals('CHOCOLATE');  // true
 $chocolate->equals('STRAWBERRY'); // false
 
 // When comparing with any value (including strings), it assumes those to be the registered value for the enum (such as 'chocolate' and 'blackberry' in this case)
-$chocolate->equals('chocolate'); // true
+$chocolate->equals('chocolate');  // true
 $chocolate->equals('strawberry'); // false
 

@@ -36,11 +36,11 @@ require('../lib/bootstrap.php');
 // When buying a new car, customers may order several additional features  
 class CarFeature extends Enum {
 	
-	const CONVERTIBLE		= 'Turn your car into a convertible!';
-	const CENTRAL_LOCKING	= 'Automatically lock all other doors, with this central locking system';
-	const SPOILERS			= 'Fan of the Fast and the Furious? Pimp your car with spoilers';
-	const ALARM				= 'Protects your valuables as well as the car itself';
-	const SEAT_HEATING		= 'Nice and comfy heated seats for those cold days';
+	const CONVERTIBLE       = 'Turn your car into a convertible!';
+	const CENTRAL_LOCKING   = 'Automatically lock all other doors, with this central locking system';
+	const SPOILERS          = 'Fan of the Fast and the Furious? Pimp your car with spoilers';
+	const ALARM             = 'Protects your valuables as well as the car itself';
+	const SEAT_HEATING      = 'Nice and comfy heated seats for those cold days';
 	
 }
 
