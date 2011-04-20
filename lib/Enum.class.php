@@ -205,6 +205,10 @@ abstract class Enum {
 				throw new EnumException('Enum '.get_called_class().'::'.$name.' could not be found');
 				return null;
 			}
+			if($args) {
+				throw new EnumException('Cannot construct '.get_class($enum).'::'.$enum->getName().' outside of '.get_class($enum).' (use static initializer instead)');
+				return null;
+			}
 			return $enum;
 		}
 	}
