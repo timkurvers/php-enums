@@ -91,7 +91,7 @@ abstract class Enum {
 	 * Human-readable presentation of this enum
 	 */
 	public function __toString() {
-		return '['.get_class($this).'::'.$this->___name.'; Value: '.(($this->___value === null) ? 'null' : $this->___value).'; Ordinal: '.$this->___ordinal.'; Binary: 0x'.str_pad(dechex($this->getBinary()), PHP_INT_SIZE * 2, '0', STR_PAD_LEFT).']';
+		return '['.get_class($this).'::'.$this->___name.'; Value: '.(($this->___value === null) ? 'null' : $this->___value).'; Ordinal: '.$this->___ordinal.'; Binary: 0x'.str_pad(strtoupper(dechex($this->getBinary())), PHP_INT_SIZE * 2, '0', STR_PAD_LEFT).']';
 	}
 	
 	/**
