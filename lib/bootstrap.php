@@ -33,4 +33,6 @@ if(!defined('PHP_ENUMS_DS')) {
 }
 
 require(PHP_ENUMS_DIR.PHP_ENUMS_DS.'Enum.class.php');
+require(PHP_ENUMS_DIR.PHP_ENUMS_DS.'EnumSet.class.php');
+require(PHP_ENUMS_DIR.PHP_ENUMS_DS.'EnumSetIterator.class.php');
 require(PHP_ENUMS_DIR.PHP_ENUMS_DS.'EnumException.class.php');
