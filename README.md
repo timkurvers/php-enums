@@ -60,8 +60,10 @@ And its basic usage:
 
     function send(Opcode $opcode, $data=null) { }
     
-When '4' is passed in, PHP will throw a type-mismatch exception. This  
-is the most basic example, however the library provides a lot more.
+When '4' is passed in, PHP will throw a type-mismatch exception. The  
+enumeration library magically creates Opcode instances for each specified  
+constant. As for how this works and how to get the most out of the library  
+start with the **API example** in */examples/api.php*.
 
 
 Getting Started
