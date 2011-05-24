@@ -84,7 +84,7 @@ a starting point for your own project.
 Library Directory Structure
 ---------------------------
 
-> /examples/  
-> /lib/  
-> /LICENSE  
-> /README  
+* /examples/  
+* /lib/  
+* /LICENSE  
+* /README  
