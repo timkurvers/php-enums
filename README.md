@@ -79,12 +79,3 @@ a starting point for your own project.
 * **Constructors**: Enhancing enums by attaching data and behaviour 
 * **Iteration**: Working with a list of defined enums
 * **Sets**: Creating and using unique collections of enums
-
-
-Library Directory Structure
----------------------------
-
-* /examples/  
-* /lib/  
-* /LICENSE  
-* /README  
