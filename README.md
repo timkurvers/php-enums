@@ -67,7 +67,11 @@ And its basic usage:
     
 When '4' is passed in, PHP will throw a type-mismatch exception. The  
 enumeration library magically creates Opcode instances for each specified  
-constant. As for how this works and how to get the most out of the library  
+constant. This will allow our send() method to function correctly:
+
+    send(Opcode::LOGIN(), array('name'=>'Harry'));
+
+As for how this works and how to get the most out of the library  
 start with the **API example** in */examples/api.php*.
 
 
