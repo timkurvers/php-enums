@@ -34,7 +34,7 @@ each other indicated by their prefix. Their usage may look like this:
 
     function send($opcode, $data=null) { } 
 
-One would pass in a constant (currently ranging from 0 to 4) and some  
+One would pass in a constant (currently ranging from 0 to 3) and some  
 additional data, and the send() method will do its job.
 
 However, there are a set of disadvantages to this approach:
