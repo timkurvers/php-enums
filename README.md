@@ -30,12 +30,15 @@ a set of opcodes to communicate with upstream services:
     define('OPCODE_LOGOUT', 3);
 
 We may call this an enumeration as it is a set of constants related to  
-each other indicated by their prefix. Their usage may look like this:  
+each other indicated by their prefix. Consider having a send() method  
+which heavily relies on the defined opcodes. Its usage may look like this:  
 
     function send($opcode, $data=null) { } 
 
-One would pass in a constant (currently ranging from 0 to 3) and some  
-additional data, and the send() method will do its job.
+One would pass in one of the defined constants - ranging from 0 to 3 - and
+some additional data, and the send() method will do its job:
+
+    send(OPCODE_LOGIN, array('name'=>'Pete'));
 
 However, there are a set of disadvantages to this approach:
 
