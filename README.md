@@ -12,6 +12,7 @@ as equality support and value, ordinal and binary lookups.
 
 Licensed under the **MIT** license, see LICENSE for more information.
 
+
 Introduction
 ------------
 
@@ -35,7 +36,7 @@ which heavily relies on the defined opcodes. Its usage may look like this:
 
     function send($opcode, $data=null) { } 
 
-One would pass in one of the defined constants - ranging from 0 to 3 - and
+One would pass in one of the defined constants - ranging from 0 to 3 - and  
 some additional data, and the send() method will do its job:
 
     send(OPCODE_LOGIN, array('name'=>'Pete'));
