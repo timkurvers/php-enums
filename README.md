@@ -10,7 +10,7 @@ as equality support and value, ordinal and binary lookups.
 
 **Required PHP version: 5.3**
 
-Licensed under the **MIT**, see LICENSE for more information.
+Licensed under the **MIT** license, see LICENSE for more information.
 
 Introduction
 ------------
