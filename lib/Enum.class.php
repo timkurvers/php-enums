@@ -331,6 +331,11 @@ abstract class Enum {
 interface EnumConstants {
 	
 	/**
+	 * Version of the PHP Enums Library
+	 */
+	const VERSION = 'v1.0';
+	
+	/**
 	 * Enum constructor method name (differs from the regular PHP constructor by an additional underscore)
 	 */
 	const CONSTRUCTOR = '___construct';
