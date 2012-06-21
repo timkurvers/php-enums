@@ -24,22 +24,28 @@ integer constants losing useful features in the process.
 
 A real-world PHP example: in your web application you might be using  
 a set of opcodes to communicate with upstream services:
-	
-	define('OPCODE_VOID', 0);
-    define('OPCODE_LOGIN', 1);
-    define('OPCODE_QUERY', 2);
-    define('OPCODE_LOGOUT', 3);
+
+```php
+define('OPCODE_VOID', 0);
+define('OPCODE_LOGIN', 1);
+define('OPCODE_QUERY', 2);
+define('OPCODE_LOGOUT', 3);
+```
 
 We may call this an enumeration as it is a set of constants related to  
 each other indicated by their prefix. Consider having a send() method  
 which heavily relies on the defined opcodes. Its usage may look like this:  
 
-    function send($opcode, $data=null) { } 
+```php
+function send($opcode, $data=null) { } 
+```
 
 One would pass in one of the defined constants - ranging from 0 to 3 - and  
 some additional data, and the send() method will do its job:
 
-    send(OPCODE_LOGIN, array('name'=>'Pete'));
+```php
+send(OPCODE_LOGIN, array('name'=>'Pete'));
+```
 
 However, there are a set of disadvantages to this approach:
 
@@ -52,24 +58,30 @@ However, there are a set of disadvantages to this approach:
 By using enumerations one can overcome all these disadvantages and  
 in the process benefit from added functionality:
 
-    class Opcode extends Enum {
-        
-        const VOID = 0;
-        const LOGIN = 1;
-        const QUERY = 2;
-        const LOGOUT = 3;
-        
-    }
+```php
+class Opcode extends Enum {
     
+    const VOID = 0;
+    const LOGIN = 1;
+    const QUERY = 2;
+    const LOGOUT = 3;
+    
+}
+```
+
 And its basic usage:
 
-    function send(Opcode $opcode, $data=null) { }
+```php
+function send(Opcode $opcode, $data=null) { }
+```
     
 When '4' is passed in, PHP will throw a type-mismatch exception. The  
 enumeration library magically creates Opcode instances for each specified  
 constant. This will allow our send() method to function correctly:
 
-    send(Opcode::LOGIN(), array('name'=>'Harry'));
+```php
+send(Opcode::LOGIN(), array('name'=>'Harry'));
+```
 
 As for how this works and how to get the most out of the library  
 start with the **API example** in */examples/api.php*.
