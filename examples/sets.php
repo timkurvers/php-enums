@@ -7,7 +7,7 @@
  * found in Java. It differs from existing libraries by offering one-shot
  * enum constructors through static initialization, enum iteration as well
  * as equality support and value, ordinal and binary lookups.
-
+ *
  * The contents of this file are subject to the MIT License, under which
  * this library is licensed. See the LICENSE file for the full license.
  *
