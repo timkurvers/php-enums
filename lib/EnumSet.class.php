@@ -2,23 +2,23 @@
 /**
  * PHP Enums Library
  * Copyright (c) 2011 Tim Kurvers <http://www.moonsphere.net>
- * 
+ *
  * This library provides enum functionality similar to the implementation
  * found in Java. It differs from existing libraries by offering one-shot
  * enum constructors through static initialization, enum iteration as well
  * as equality support and value, ordinal and binary lookups.
- * 
- * The contents of this file are subject to the MIT License, under which 
+ *
+ * The contents of this file are subject to the MIT License, under which
  * this library is licensed. See the LICENSE file for the full license.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
  * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- * 
+ *
  * @author	Tim Kurvers <tim@moonsphere.net>
  */
 
@@ -26,43 +26,43 @@
  * Enumeration set holding enums of a certain type
  */
 class EnumSet implements IteratorAggregate, Countable {
-	
+
 	/**
 	 * Type of enums stored in this set
 	 */
 	protected $_type = null;
-	
+
 	/**
 	 * Actual collection of enums in this set
 	 */
 	protected $_set = array();
-	
+
 	/**
 	 * Binary mask for this entire set, calculated by EnumSet::getBinary()
 	 */
 	protected $_binary = null;
-	
+
 	/**
 	 * Constructs a new enumeration set for given class
 	 */
 	protected function __construct($class) {
 		$this->_type = $class;
 	}
-	
+
 	/**
 	 * Human-readable representation of this enumeration set
 	 */
 	public function __toString() {
 		return '[EnumSet Size: '.$this->count().'; Binary: 0x'.str_pad(strtoupper(dechex($this->getBinary())), PHP_INT_SIZE * 2, '0', STR_PAD_LEFT).'; Set: '.implode(', ', $this->_set).']';
 	}
-	
+
 	/**
 	 * Returns the amount of enums contained in this set
 	 */
 	public function count() {
 		return count($this->_set);
 	}
-	
+
 	/**
 	 * Returns the enum at given offset (if any)
 	 */
@@ -72,21 +72,21 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Returns the type of the enums contained in this set
 	 */
 	public function getType() {
 		return $this->_type;
 	}
-	
+
 	/**
 	 * Generates a new iterator to iterate over the enums in this set
 	 */
 	public function getIterator() {
 		return new EnumSetIterator($this);
 	}
-	
+
 	/**
 	 * Returns the binary mask of this entire set
 	 */
@@ -99,9 +99,9 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $this->_binary;
 	}
-	
+
 	/**
-	 * Adds given enums - optionally nested using arrays - to this set, provided they are of this set's type 
+	 * Adds given enums - optionally nested using arrays - to this set, provided they are of this set's type
 	 */
 	public function add() {
 		$args = func_get_args();
@@ -120,7 +120,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $this;
 	}
-	
+
 	/**
 	 * Adds given enum to this set without type-checking
 	 */
@@ -128,12 +128,12 @@ class EnumSet implements IteratorAggregate, Countable {
 		$this->_set[] = $enum;
 		$this->_binary = null;
 	}
-	
+
 	/**
 	 * Removes given enums - optionally nested using arrays - from this set, provided they exist
 	 */
 	public function remove() {
-		$args = func_get_args();		
+		$args = func_get_args();
 		if($args) {
 			foreach($args as $arg) {
 				if(is_array($arg)) {
@@ -149,7 +149,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $this;
 	}
-	
+
 	/**
 	 * Removes given enum from this set
 	 */
@@ -160,7 +160,7 @@ class EnumSet implements IteratorAggregate, Countable {
 			$this->_binary = null;
 		}
 	}
-	
+
 	/**
 	 * Clears this set
 	 */
@@ -169,7 +169,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		$this->_binary = null;
 		return $this;
 	}
-	
+
 	/**
 	 * Retains ONLY the enums contained in given set, the rest is removed
 	 */
@@ -185,7 +185,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $this;
 	}
-	
+
 	/**
 	 * Whether this set contains given enums
 	 */
@@ -201,28 +201,28 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Whether this set contains given enum
 	 */
 	protected function _contains(Enum $enum) {
 		return in_array($enum, $this->_set, true);
 	}
-	
+
 	/**
 	 * Whether this set is empty
 	 */
 	public function isEmpty() {
 		return empty($this->_set);
 	}
-	
+
 	/**
 	 * Whether given class is a valid enumeration type
 	 */
 	public static function isValidType($class) {
 		return (class_exists($class) && is_subclass_of($class, 'Enum'));
 	}
-	
+
 	/**
 	 * Creates a new set for given class
 	 */
@@ -233,7 +233,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return new static($class);
 	}
-	
+
 	/**
 	 * Creates a new set for given class containing all defined enums
 	 */
@@ -244,7 +244,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $set;
 	}
-	
+
 	/**
 	 * Creates a new set of given enums (the initial enum determines the type of the set)
 	 */
@@ -256,7 +256,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $set;
 	}
-	
+
 	/**
 	 * Creates a new set complementing the given set, thus, containing all enums _not_ present in the given one
 	 */
@@ -271,7 +271,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $comp;
 	}
-	
+
 	/**
 	 * Creates a new set ranging from first to second given enum (regardless of order)
 	 */
@@ -294,7 +294,7 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $set;
 	}
-	
+
 	/**
 	 * Creates a new set for given class containing all enums defined by the given binary mask
 	 */
@@ -306,5 +306,5 @@ class EnumSet implements IteratorAggregate, Countable {
 		}
 		return $set;
 	}
-	
+
 }
