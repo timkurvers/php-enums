@@ -1,6 +1,6 @@
 # PHP Enums Library
 
-![Unmaintained](https://img.shields.io/badge/%E2%9A%A0-unmaintained-red.svg)
+![Unmaintained](https://img.shields.io/badge/%E2%9A%A0-unmaintained-red.svg?style=flat)
 
 This library provides enum functionality similar to the implementation found in Java. It differs from existing libraries by offering one-shot enum constructors through static initialization, enum iteration as well as equality support and value, ordinal and binary lookups.
 
